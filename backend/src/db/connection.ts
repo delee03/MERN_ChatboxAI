@@ -2,7 +2,7 @@ import { connect, disconnect } from "mongoose";
 
 async function connectToDatabase() {
     try {
-        await connect(process.env.MONGODB_URL);
+        await connect(process.env.MONGODB_URL); //lấy dữ liệu từ biến môi trường ENV
     } catch (err) {
         console.log(err);
         throw new Error("cannot connect to mongoDB");
