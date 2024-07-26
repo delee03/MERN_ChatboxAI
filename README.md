@@ -1,8 +1,10 @@
-<h2>MONGO DB</h2>
-<h2>EXPRESS JS</h2>
-<h2>REACT JS</h2>
-<h2>NODE JS</h2>
-<h2>OPEN AI</h2>
+<h2>Project MERN chatbot</h2>
+
+<h3>MONGO DB</h3>
+<h3>EXPRESS JS</h3>
+<h3>REACT JS</h3>
+<h3>NODE JS</h3>
+<h3>OPEN AI</h3>
 
 <h3>Back End</h3>
 <ul>
