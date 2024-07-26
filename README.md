@@ -12,3 +12,10 @@
   <li>Express-validator library</li>
   <li>Authentication and Authorization With JWT Access Tokens and HTTP Only Cookies </li>
 </ul>
+
+<h3>Front End</h3>
+<ul>
+<li>React Hooks</li>
+<li>React Context API</li>
+<li>React Router</li>
+</ul>
