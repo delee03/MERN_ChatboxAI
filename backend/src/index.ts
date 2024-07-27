@@ -1,5 +1,5 @@
 // console.log(
-//   "This is a starter kit for this amazing project. With 💓 By Indian Coders"
+//   "This is a starter kit for this amazing project. With 💓 By Fuderr Phạm"
 // );
 import app from "./app.js";
 import { connectToDatabase } from "./db/connection.js";
@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 // app.post("/hello", (req, res, next) => {
 //     console.log(req.body.name);
-//     return res.send("hello indian coders i'm building MERN AI");
+//     return res.send("hello World i'm building MERN AI");
 // });
 
 // app.delete("/user/:id", (req, res, next) => {
