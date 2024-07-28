@@ -13,13 +13,16 @@ const Header = () => {
                 bgcolor: "transparent",
                 position: "sticky",
                 boxShadow: "none",
+                // ":hover": {
+                //     filter: "drop-shadow(-10px -3px 5px blue)",
+                // },
             }}
         >
             <Toolbar
                 sx={{
                     display: "flex",
                     padding: "10px 0",
-                    boxShadow: "10px 10px 20px #000",
+                    boxShadow: "-2px 8px 20px #545155;",
                 }}
             >
                 <Logo />

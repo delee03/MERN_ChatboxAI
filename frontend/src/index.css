@@ -8,8 +8,23 @@ body {
     font-family: "Roboto Slab", serif;
 }
 
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.image-inverted:hover {
+    background-color: purple;
+    filter: drop-shadow(5px 5px 20px rgb(121, 4, 255));
+}
+
 .image-inverted {
     filter: invert(100%);
+    transition: filter 0.5s ease-in-out;
+    animation: logo-spin infinite 10s linear;
 }
 .nav-link {
     font-weight: 600;
@@ -21,12 +36,11 @@ body {
     text-decoration: none;
     letter-spacing: 1px;
     border: 1px solid transparent;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .nav-link:hover {
-    border: 1px solid yellow;
-    filter: drop-shadow(5px 5px 20px yellow);
+    filter: drop-shadow(5px 5px 20px rgb(121, 4, 255));
 }
 
 .MuiOutlinedInput-input-root.Mui-focused,

@@ -15,7 +15,6 @@ const Logo = () => {
             <Link to="/">
                 <img
                     src="openai.png"
-                    style={{ backgroundColor: "#fff" }}
                     alt="openai"
                     width={"30px"}
                     height={"30px"}
@@ -28,6 +27,12 @@ const Logo = () => {
                     mr: "auto",
                     fontWeight: "800",
                     textShadow: "2px 2px 20px #000",
+                    transition: "all .5s",
+                    ":hover": {
+                        color: "purple",
+                        fontSize: "24px",
+                        filter: "drop-shadow(5px 5px 20px rgb(121, 4, 255))",
+                    },
                 }}
             >
                 <span style={{ fontSize: "20px" }}>MERN</span>-GPT

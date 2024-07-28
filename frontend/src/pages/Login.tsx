@@ -91,11 +91,11 @@ const Login = () => {
                                 color: "#fff",
                                 width: "400px",
                                 borderRadius: 999,
-                                bgcolor: "#00fffc",
+                                bgcolor: "#08e4e0",
                                 transition: "all .5s",
                                 ":hover": {
                                     bgcolor: "#fff",
-                                    color: "black",
+                                    color: "#08e4e0",
                                 },
                             }}
                             endIcon={
