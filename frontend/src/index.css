@@ -20,4 +20,20 @@ body {
     border-radius: 5px;
     text-decoration: none;
     letter-spacing: 1px;
+    border: 1px solid transparent;
+    transition: all 0.5s;
 }
+
+.nav-link:hover {
+    border: 1px solid yellow;
+    filter: drop-shadow(5px 5px 20px yellow);
+}
+
+.MuiOutlinedInput-input-root.Mui-focused,
+.MuiOutlinedInput-notchedOutline {
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0px 5px 15px #00fffc;
+}
+/* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    color: white !important;
+} */
