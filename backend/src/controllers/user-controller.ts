@@ -71,7 +71,7 @@ export const userLogin = async (
     next: NextFunction
 ) => {
     try {
-        //user login up config
+        //user token check expire
         const { email, password } = req.body;
         const user = await User.findOne({ email }); //get User by email
 
@@ -120,7 +120,7 @@ export const verifyUser = async (
     next: NextFunction
 ) => {
     try {
-        const user = await User.findById({ email: res.locals.jwtData.email }); //get User by email
+        const user = await User.findById(res.locals.jwtData.id); //get User by id
 
         if (!user) {
             return res
@@ -129,7 +129,7 @@ export const verifyUser = async (
         }
         console.log(user._id.toString(), res.locals.jwtData.id);
 
-        if (user._id.toString() === res.locals.jwtData.id) {
+        if (user._id.toString() !== res.locals.jwtData.id) {
             return res.status(401).send("Permissions didn't match");
         }
         //check if user is active

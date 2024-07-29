@@ -1,5 +1,15 @@
 import { Router } from "express";
+import { verifyToken } from "../utils/token-manager.js";
+import { chatCompletionValidator, validate } from "../utils/validators.js";
+import { generateChatCompletion } from "../controllers/chat-controller.js";
 
-const chatRouter = Router();
+//protected API chat
+const chatRoutes = Router();
 
-export default chatRouter;
+chatRoutes.post(
+    "/new",
+    validate(chatCompletionValidator),
+    generateChatCompletion
+);
+
+export default chatRoutes;

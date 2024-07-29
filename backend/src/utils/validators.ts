@@ -29,3 +29,7 @@ export const signupValidator = [
     body("name").notEmpty().withMessage("Name is required"),
     ...loginValidator, //spread operator tái sử dụng
 ];
+
+export const chatCompletionValidator = [
+    body("name").notEmpty().withMessage("Message is required"),
+];
