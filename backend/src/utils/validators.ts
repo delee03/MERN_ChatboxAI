@@ -31,5 +31,7 @@ export const signupValidator = [
 ];
 
 export const chatCompletionValidator = [
-    body("name").notEmpty().withMessage("Message is required"),
+    body("message")
+        .notEmpty()
+        .withMessage("Message  is required, Bạn đang lỗi tin chat"),
 ];

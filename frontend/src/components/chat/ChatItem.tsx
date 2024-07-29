@@ -16,7 +16,7 @@ const ChatItem = ({
                 <img src="openai.png" width={30} alt="openai" />
             </Avatar>
             <Box>
-                <Typography fontSize={"20px"}>{content}</Typography>
+                <Typography sx={{ fontSize: "20px" }}>{content}</Typography>
             </Box>
         </Box>
     ) : (
@@ -26,7 +26,7 @@ const ChatItem = ({
                 {auth?.user?.name.split(" ")[1][0]}
             </Avatar>
             <Box>
-                <Typography fontSize={"20px"}>{content}</Typography>
+                <Typography sx={{ fontSize: "20px" }}>{content}</Typography>
             </Box>
         </Box>
     );
