@@ -17,13 +17,14 @@ body {
     }
 }
 .image-inverted:hover {
-    background-color: purple;
+    rotate: y 90deg;
+    rotate: x 90deg;
     filter: drop-shadow(5px 5px 20px rgb(121, 4, 255));
 }
 
 .image-inverted {
     filter: invert(100%);
-    transition: filter 0.5s ease-in-out;
+    transition: rotate 1s ease-in-out;
     animation: logo-spin infinite 10s linear;
 }
 
