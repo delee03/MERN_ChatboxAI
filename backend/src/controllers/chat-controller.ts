@@ -13,11 +13,9 @@ export const generateChatCompletion = async (
     try {
         const user = await User.findById(res.locals.jwtData.id);
         if (!user)
-            return res
-                .status(401)
-                .json({
-                    message: "User not registered OR Token malfunctioned",
-                });
+            return res.status(401).json({
+                message: "User not registered OR Token malfunctioned",
+            });
         // grab chats of user
         const chats = user.chats.map(({ role, content }) => ({
             role,
@@ -40,5 +38,61 @@ export const generateChatCompletion = async (
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Something went wrong" });
+    }
+};
+
+export const sendChatsToUser = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const user = await User.findById(res.locals.jwtData.id); //get User by id
+
+        if (!user) {
+            return res
+                .status(401)
+                .send("User not registed OR token mailfunctioned");
+        }
+        console.log(user._id.toString(), res.locals.jwtData.id);
+
+        if (user._id.toString() !== res.locals.jwtData.id) {
+            return res.status(401).send("Permissions didn't match");
+        }
+        //check if user is active
+        return res.status(200).json({ message: "OK", chats: user.chats });
+    } catch (error) {
+        console.log(error);
+        return res.status(200).json({ message: "ERROR", cause: error.message });
+    }
+};
+
+export const deleteChats = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    try {
+        const user = await User.findById(res.locals.jwtData.id); //get User by id
+
+        if (!user) {
+            return res
+                .status(401)
+                .send("User not registed OR token mailfunctioned");
+        }
+        // console.log(user._id.toString(), res.locals.jwtData.id);
+
+        if (user._id.toString() !== res.locals.jwtData.id) {
+            return res.status(401).send("Permissions didn't match");
+        }
+        //@ts-expect-error
+        user.chats = [];
+        await user.save();
+
+        //check if user is active
+        return res.status(200).json({ message: "OK" });
+    } catch (error) {
+        console.log(error);
+        return res.status(200).json({ message: "ERROR", cause: error.message });
     }
 };

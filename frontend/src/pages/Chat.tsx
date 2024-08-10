@@ -1,10 +1,15 @@
 import { Box, Avatar, Typography, Button } from "@mui/material";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { colors, IconButton } from "@mui/material";
 import ChatItem from "./../components/chat/ChatItem";
 import { IoMdSend } from "react-icons/io";
-import { sendChatRequest } from "../helpers/api-communicator";
+import {
+    deleteUerChats,
+    getUserChats,
+    sendChatRequest,
+} from "../helpers/api-communicator";
+import { toast } from "react-hot-toast";
 
 type Message = {
     role: "user" | "assistant";
@@ -25,6 +30,36 @@ const Chat = () => {
         const chatData = await sendChatRequest(content);
         setChatMessages([...chatData.chats]);
     };
+
+    const handleDeleteChats = async () => {
+        try {
+            toast.loading("deleting chats", { id: "deleteChats" });
+            await deleteUerChats();
+            setChatMessages([]);
+            toast.success("Successfully Deleted Chats", { id: "deleteChats" });
+        } catch (error) {
+            console.log(error);
+            toast.error("Failed to delete chats", { id: "Error Messages" });
+        }
+    };
+
+    useLayoutEffect(() => {
+        if (auth?.isLoggedIn && auth.user) {
+            toast.loading("Loading Chats", { id: "loading" });
+            getUserChats()
+                .then((data: any) => {
+                    setChatMessages([...data.chats]);
+                    toast.success("Successfully Loaded Chats", {
+                        id: "loading",
+                    });
+                })
+                .catch((err: any) => {
+                    console.log(err);
+                    toast.error("Loading chats Failed", { id: "loading" });
+                });
+        }
+    }, [auth]);
+
     return (
         //using box & avatar from material UI mui
         <Box
@@ -87,6 +122,7 @@ const Chat = () => {
                         personal information, sensitive policities
                     </Typography>
                     <Button
+                        onClick={handleDeleteChats}
                         sx={{
                             width: "200px",
                             my: "auto",
