@@ -206,7 +206,6 @@ const Chat = () => {
                 <div
                     style={{
                         width: "100%",
-                        padding: "20px",
                         borderRadius: 8,
                         paddingBottom: "30px",
                         backgroundColor: "rgb(17,27,39)",
