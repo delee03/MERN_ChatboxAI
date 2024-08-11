@@ -10,13 +10,13 @@ export const loginUser = async (email: string, password: string) => {
 };
 
 export const signupUser = async (
-    email: string,
     name: string,
+    email: string,
     password: string
 ) => {
-    const res = await axios.post("/user/signup", { email, name, password });
+    const res = await axios.post("/user/signup", { name, email, password });
     if (res.status !== 201) {
-        throw new Error("Không thể đăng kí");
+        throw new Error("Unable to Signup");
     }
     const data = await res.data;
     return data;
@@ -50,7 +50,7 @@ export const getUserChats = async () => {
 };
 
 export const deleteUerChats = async () => {
-    const res = await axios.get("/chat/delete");
+    const res = await axios.delete("/chat/delete");
     if (res.status !== 200) {
         throw new Error("Unable to delete chat");
     }

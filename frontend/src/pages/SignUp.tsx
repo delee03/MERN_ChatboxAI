@@ -1,67 +1,57 @@
-import { Box, Button, Typography } from "@mui/material";
-import { TbLogin2 } from "react-icons/tb";
 import React, { useEffect } from "react";
+import { IoIosLogIn } from "react-icons/io";
+import { Box, Typography, Button } from "@mui/material";
 import CustomizedInput from "../components/shared/CustomizedInput";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
-    const auth = useAuth();
+const Signup = () => {
     const navigate = useNavigate();
+    const auth = useAuth();
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const name = formData.get("name") as string;
         const email = formData.get("email") as string;
         const password = formData.get("password") as string;
-        // console.log(formData, email, password);
         try {
-            toast.loading("Signing Up!", { id: "signup" });
+            toast.loading("Signing Up", { id: "signup" });
             await auth?.signup(name, email, password);
-            toast.success("Signed Up Successfully!", { id: "signup" });
+            toast.success("Signed Up Successfully", { id: "signup" });
         } catch (error) {
             console.log(error);
-            toast.error("Signging Up Failed!", { id: "signup" });
+            toast.error("Signing Up Failed", { id: "signup" });
         }
     };
-
     useEffect(() => {
         if (auth?.user) {
-            // window.location.href = "/chat";
             return navigate("/chat");
         }
-    });
-
+    }, [auth]);
     return (
         <Box width={"100%"} height={"100%"} display="flex" flex={1}>
             <Box
                 padding={8}
-                mt={3}
-                width={"100%"}
+                mt={8}
                 display={{ md: "flex", sm: "none", xs: "none" }}
             >
-                <img
-                    src="openai-robot.png"
-                    alt="AI Robot"
-                    style={{ width: "400px" }}
-                />
+                <img src="airobot.png" alt="Robot" style={{ width: "400px" }} />
             </Box>
             <Box
                 display={"flex"}
                 flex={{ xs: 1, md: 0.5 }}
                 justifyContent={"center"}
-                alignContent={"center"}
+                alignItems={"center"}
                 padding={2}
                 ml={"auto"}
-                mr={16}
+                mt={16}
             >
                 <form
                     onSubmit={handleSubmit}
-                    action=""
                     style={{
                         margin: "auto",
-                        padding: "20px 30px 50px",
+                        padding: "30px",
                         boxShadow: "10px 10px 20px #000",
                         borderRadius: "10px",
                         border: "none",
@@ -77,10 +67,10 @@ const SignUp = () => {
                         <Typography
                             variant="h4"
                             textAlign="center"
-                            padding={4}
+                            padding={2}
                             fontWeight={600}
                         >
-                            SignUp
+                            Signup
                         </Typography>
                         <CustomizedInput type="text" name="name" label="Name" />
                         <CustomizedInput
@@ -97,30 +87,19 @@ const SignUp = () => {
                             type="submit"
                             sx={{
                                 px: 2,
-                                py: 2,
-                                fontSize: "18px",
-                                mt: 3,
-                                color: "#fff",
+                                py: 1,
+                                mt: 2,
                                 width: "400px",
-                                borderRadius: 999,
-                                bgcolor: "#08e4e0",
-                                transition: "all .5s",
+                                borderRadius: 2,
+                                bgcolor: "#00fffc",
                                 ":hover": {
-                                    bgcolor: "#fff",
-                                    color: "#08e4e0",
+                                    bgcolor: "white",
+                                    color: "black",
                                 },
                             }}
-                            endIcon={
-                                <TbLogin2
-                                    style={{
-                                        marginLeft: "-10px",
-                                        height: "23px",
-                                        width: "30px",
-                                    }}
-                                ></TbLogin2>
-                            }
+                            endIcon={<IoIosLogIn />}
                         >
-                            SignUp
+                            Signup
                         </Button>
                     </Box>
                 </form>
@@ -129,4 +108,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default Signup;

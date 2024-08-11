@@ -19,22 +19,22 @@ export const getAllUsers = async (
 };
 
 //sử dụng các req, res, next từ express js
-export const userSignUp = async (
+export const userSignup = async (
     req: Request,
     res: Response,
     next: NextFunction
 ) => {
     try {
-        //user sign up config
+        //user signup
         const { name, email, password } = req.body;
-        const existingUser = await User.findOne({ email: email }); //so sánh với các email đã có trong User
-        if (existingUser) return res.status(401).send("User already register");
+        const existingUser = await User.findOne({ email });
+        if (existingUser)
+            return res.status(401).send("User already registered");
         const hashedPassword = await hash(password, 10);
         const user = new User({ name, email, password: hashedPassword });
         await user.save();
 
-        //create token và lưu cookies
-        //xử lí xóa cookies khi user log out
+        // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
             httpOnly: true,
             domain: "localhost",
@@ -42,12 +42,9 @@ export const userSignUp = async (
             path: "/",
         });
 
-        //create token when login success
         const token = createToken(user._id.toString(), user.email, "7d");
         const expires = new Date();
         expires.setDate(expires.getDate() + 7);
-        //để send cookies trực tiếp from be to fe
-        //sử dụng => cookies parser
         res.cookie(COOKIE_NAME, token, {
             path: "/",
             domain: "localhost",
@@ -57,7 +54,7 @@ export const userSignUp = async (
         });
 
         return res
-            .status(200)
+            .status(201)
             .json({ message: "OK", name: user.name, email: user.email });
     } catch (error) {
         console.log(error);
