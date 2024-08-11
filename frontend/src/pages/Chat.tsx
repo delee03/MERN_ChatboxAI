@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { colors, IconButton } from "@mui/material";
 import ChatItem from "./../components/chat/ChatItem";
 import { IoMdSend } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 import {
     deleteUerChats,
     getUserChats,
@@ -17,6 +18,7 @@ type Message = {
 };
 
 const Chat = () => {
+    const navigate = useNavigate();
     const inputRef = useRef<HTMLInputElement | null>(null);
     const auth = useAuth();
     const [chatMessages, setChatMessages] = useState<Message[]>([]);
@@ -57,6 +59,12 @@ const Chat = () => {
                     console.log(err);
                     toast.error("Loading chats Failed", { id: "loading" });
                 });
+        }
+    }, [auth]);
+
+    useEffect(() => {
+        if (!auth?.user) {
+            return navigate("/login");
         }
     }, [auth]);
 

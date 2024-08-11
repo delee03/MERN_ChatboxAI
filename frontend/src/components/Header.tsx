@@ -40,7 +40,7 @@ const Header = () => {
                                 to="/"
                                 text="Logout"
                                 textColor="white"
-                                onClick={auth.logout}
+                                onClick={auth.logout} // logout function
                             />
                         </>
                     ) : (
