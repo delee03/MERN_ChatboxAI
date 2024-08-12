@@ -78,13 +78,14 @@ const Chat = () => {
                 width: "100%",
                 height: "100%",
                 mt: 5,
-                gap: 3,
+                gap: -1,
             }}
         >
             <Box
                 sx={{
                     display: { md: "flex", xs: "none", sm: "none" },
-                    flex: 0.2,
+                    flex: { md: 0.2 },
+
                     flexDirection: "column",
                 }}
             >
@@ -97,7 +98,7 @@ const Chat = () => {
                         borderRadius: 4,
                         boxShadow: "0px 0px 10px #000",
                         flexDirection: "column",
-                        mx: 3,
+
                         mt: 4,
                         py: 3,
                     }}
@@ -170,7 +171,7 @@ const Chat = () => {
                         mb: 2,
                     }}
                 >
-                    GPT-3.5 Turbo
+                    BaoCon-GPT Turbo
                     <img
                         src="openai.png"
                         alt="openai"
@@ -182,14 +183,14 @@ const Chat = () => {
                 </Typography>
                 <Box
                     sx={{
-                        width: "100%",
+                        maxWidth: "100%",
                         height: "60vh",
                         borderRadius: "3",
                         mx: "auto",
                         display: "flex",
                         flexDirection: "column",
-                        overflow: "scroll",
-                        overflowX: "hidden",
+
+                        overflowX: "auto",
                         overflowY: "auto",
                         scrollBehavior: "smooth",
                     }}
@@ -228,7 +229,12 @@ const Chat = () => {
                     />
                     <IconButton
                         onClick={handleSubmit}
-                        sx={{ ml: "auto", color: "white", fontSize: 30, pr: 5 }}
+                        sx={{
+                            ml: "auto",
+                            color: "white",
+                            fontSize: 30,
+                            mt: 2,
+                        }}
                     >
                         {" "}
                         <IoMdSend></IoMdSend>

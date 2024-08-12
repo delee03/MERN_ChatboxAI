@@ -42,11 +42,28 @@ const ChatItem = ({
     const messageBlocks = extractCodeFromString(content);
     const auth = useAuth();
     return role === "assistant" ? (
-        <Box sx={{ display: "flex", p: 2, bgcolor: "#1A1A1C", my: 2, gap: 2 }}>
-            <Avatar sx={{ ml: 0 }}>
+        <Box
+            sx={{
+                display: "flex",
+                py: 2,
+                bgcolor: "#1A1A1C",
+                my: 2,
+                maxWidth: "75vw",
+                pr: 7,
+                gap: 2,
+            }}
+        >
+            <Avatar sx={{ ml: 1 }}>
                 <img src="openai.png" width={30} alt="openai" />
             </Avatar>
-            <Box>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 1,
+                    width: "100%",
+                }}
+            >
                 {messageBlocks ? (
                     messageBlocks.map((block, index) => {
                         return iscodeBlock(block) ? (
@@ -58,18 +75,29 @@ const ChatItem = ({
                                 {block}
                             </SyntaxHighlighter>
                         ) : (
-                            <Typography key={index} sx={{ fontSize: "20px" }}>
+                            <Typography key={index} sx={{ fontSize: "18px" }}>
                                 {block}
                             </Typography>
                         );
                     })
                 ) : (
-                    <Typography sx={{ fontSize: "20px" }}>{content}</Typography>
+                    <Typography sx={{ fontSize: "18px", width: "100%" }}>
+                        {content}
+                    </Typography>
                 )}
             </Box>
         </Box>
     ) : (
-        <Box sx={{ display: "flex", p: 2, bgcolor: "#004d56", gap: 2, my: 2 }}>
+        <Box
+            sx={{
+                display: "flex",
+                p: 2,
+                bgcolor: "#004d56",
+                gap: 2,
+                maxWidth: "100%",
+                my: 2,
+            }}
+        >
             <Avatar sx={{ ml: 0, bgcolor: "black", color: "white" }}>
                 {auth?.user?.name[0]}
                 {auth?.user?.name.split(" ")[1][0]}
@@ -86,13 +114,13 @@ const ChatItem = ({
                                 {block}
                             </SyntaxHighlighter>
                         ) : (
-                            <Typography key={index} sx={{ fontSize: "20px" }}>
+                            <Typography key={index} sx={{ fontSize: "18px" }}>
                                 {block}
                             </Typography>
                         );
                     })
                 ) : (
-                    <Typography sx={{ fontSize: "20px" }}>{content}</Typography>
+                    <Typography sx={{ fontSize: "18px" }}>{content}</Typography>
                 )}
             </Box>
             {/* <Box>

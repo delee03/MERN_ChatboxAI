@@ -2,6 +2,8 @@ import React from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import TypingAnimation from "../components/typer/TypingAnimation";
 import Footer from "../components/footer/Footer";
+import Lottie from "lottie-react";
+import robotanimate from "../assets/animation/robotanimate.json";
 
 const Home = () => {
     const theme = useTheme();
@@ -44,7 +46,15 @@ const Home = () => {
                         height={"200px"}
                     />
                 </Box> */}
-                <Box sx={{ display: "flex", width: "100%", mx: "auto" }}>
+                <Box
+                    sx={{
+                        display: "flex",
+                        width: "100%",
+                        mx: "auto",
+                        alignItems: "center",
+                    }}
+                >
+                    <Lottie animationData={robotanimate} loop={true} />
                     <img
                         src="chat.png"
                         alt="chat bot"
@@ -54,7 +64,7 @@ const Home = () => {
                             width: isMobile ? "100%" : "60%",
                             borderRadius: 20,
                             boxShadow: "-5px -5px 100px #64f3d5",
-                            marginTop: 20,
+                            marginTop: 60,
                         }}
                     />
                 </Box>
