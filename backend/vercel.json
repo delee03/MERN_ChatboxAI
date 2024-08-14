@@ -16,8 +16,8 @@
             "dest": "/backend/api/v1/$1"
         },
         {
-            "src": "/(.*)",
-            "dest": "/dist/$1"
+            "src": "/api/v1/(.*)",
+            "dest": "/"
         }
     ]
 }
