@@ -36,16 +36,20 @@ const Signup = () => {
                 mt={8}
                 display={{ md: "flex", sm: "none", xs: "none" }}
             >
-                <img src="airobot.png" alt="Robot" style={{ width: "400px" }} />
+                <img
+                    src="openai-robot.png"
+                    alt="Robot"
+                    style={{ width: "400px" }}
+                />
             </Box>
             <Box
                 display={"flex"}
-                flex={{ xs: 1, md: 0.5 }}
+                flex={{ xs: 1, md: 1 }}
                 justifyContent={"center"}
                 alignItems={"center"}
-                padding={2}
-                ml={"auto"}
-                mt={16}
+                padding={{ xs: 0, lg: 2 }}
+                ml={{ xs: 0, lg: "200px" }}
+                mt={{ xs: 10, lg: 7 }}
             >
                 <form
                     onSubmit={handleSubmit}

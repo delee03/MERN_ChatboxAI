@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* :root {
+    color-scheme: ligh-dark;
+} */
+
 html,
 body {
     margin: 0;
     padding: 0;
     background-color: #212121;
-    color: white;
+    color: #fff;
     font-family: "Roboto Slab", serif;
 }
 
@@ -75,6 +80,22 @@ body {
 .MuiOutlinedInput-notchedOutline {
     border: 2px solid rgba(255, 255, 255, 0.8) !important;
     box-shadow: 0px 5px 15px #00fffc;
+}
+
+.demoPropScroll {
+    animation: srolling linear;
+    animation-timeline: scroll();
+    animation-duration: 50s;
+    animation-delay: 1s;
+}
+
+@keyframes srolling {
+    0% {
+        transform: rotateY(0deg);
+    }
+    40% {
+        transform: rotateY(180deg);
+    }
 }
 /* .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
     color: white !important;

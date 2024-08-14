@@ -1,7 +1,10 @@
 import React from "react";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 
 const TypingAnimation = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     return (
         <div>
             <TypeAnimation
@@ -19,8 +22,9 @@ const TypingAnimation = () => {
                 ]}
                 speed={50}
                 style={{
-                    fontSize: "40px",
+                    fontSize: isMobile ? "20px" : "40px",
                     marginLeft: "50px",
+                    marginTop: isMobile ? "100px" : "50px",
                     height: "100px",
                     padding: "40px",
                     display: "inline-block",

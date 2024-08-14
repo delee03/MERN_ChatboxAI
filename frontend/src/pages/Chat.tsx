@@ -85,7 +85,7 @@ const Chat = () => {
                 sx={{
                     display: { md: "flex", xs: "none", sm: "none" },
                     flex: { md: 0.2 },
-
+                    marginLeft: "18px",
                     flexDirection: "column",
                 }}
             >

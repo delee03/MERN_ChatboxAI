@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const Footer = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     return (
         <footer
             style={{
-                marginTop: "50px",
+                marginTop: isMobile ? "150px" : "50px",
                 minHeight: "20vh",
                 marginBottom: "100px",
                 color: "white",

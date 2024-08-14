@@ -11,7 +11,7 @@ const Header = () => {
         <AppBar
             sx={{
                 bgcolor: "transparent",
-                position: "sticky",
+                position: "fixed",
                 boxShadow: "none",
                 // ":hover": {
                 //     filter: "drop-shadow(-10px -3px 5px blue)",

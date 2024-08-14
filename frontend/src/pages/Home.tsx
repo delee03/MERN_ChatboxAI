@@ -11,6 +11,7 @@ const Home = () => {
     return (
         <Box width={"100%"} height={"100%"} flex={"flex"} mx={"auto"}>
             <Box
+                mt={{ xs: 5, md: 3 }}
                 sx={{
                     display: "flex",
                     width: "75%",
@@ -18,7 +19,6 @@ const Home = () => {
                     justifyContent: "flex-start",
                     alignItems: "center",
                     mx: "auto",
-                    mt: 3,
                 }}
             >
                 <TypingAnimation />
@@ -54,12 +54,16 @@ const Home = () => {
                         alignItems: "center",
                     }}
                 >
-                    <Lottie animationData={robotanimate} loop={true} />
+                    <Lottie
+                        className="demoPropScroll"
+                        animationData={robotanimate}
+                        loop={true}
+                    />
                     <img
                         src="chat.png"
                         alt="chat bot"
+                        className="demoPropScroll"
                         style={{
-                            display: "flex",
                             margin: "auto",
                             width: isMobile ? "100%" : "60%",
                             borderRadius: 20,
