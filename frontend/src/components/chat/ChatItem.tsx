@@ -1,11 +1,7 @@
-import React from "react";
 import { Avatar, Box, Typography } from "@mui/material";
 import { useAuth } from "../../context/AuthContext";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-    coldarkCold,
-    coldarkDark,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
+import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // hàm trích xuất code từ chuỗi
 function extractCodeFromString(message: string) {
