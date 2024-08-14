@@ -9,8 +9,9 @@ config();
 const app = express();
 
 //sử dụng middlewares
+//sử dụng middlewares
 app.use(cors({
-    origin: "https://fuderr-ai.vercel.app", 
+    origin: ["http://localhost:5173", "https://fuderr-ai.vercel.app"], 
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
