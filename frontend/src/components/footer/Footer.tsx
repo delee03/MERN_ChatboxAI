@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme, useMediaQuery } from "@mui/material";
 
