@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const SignUp = () => {
     const navigate = useNavigate();
     const auth = useAuth();
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -112,4 +112,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default SignUp;
