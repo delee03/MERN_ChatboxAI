@@ -8,7 +8,7 @@ import { AuthProvider } from "./context/AuthContext.tsx";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:5000/api/v1";
+axios.defaults.baseURL = "https://fuderr-ai.vercel.app/api/v1";
 axios.defaults.withCredentials = true;
 //lệnh xác thực cho phép set cookies từ backend trực tiếp, trao đổi thông tin cookies
 
