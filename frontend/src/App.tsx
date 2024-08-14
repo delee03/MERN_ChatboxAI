@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
-import Signup from "./pages/Signup";
 import { useAuth } from "./context/AuthContext";
 import PageNotFound from "./pages/PageNotFound";
+import Signup from "./pages/Signup";
 
 function App() {
     console.log(useAuth()?.isLoggedIn);
