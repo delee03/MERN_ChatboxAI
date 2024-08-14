@@ -11,7 +11,7 @@ import axios from "axios";
 const baseURL =
     process.env.NODE_ENV === "development"
         ? process.env.REACT_APP_API_URL
-        : "https://mern-chatbot-ai-ruddy.vercel.app/api/v1";
+        : '/api/v1';
 
 axios.defaults.baseURL = baseURL;
 axios.defaults.withCredentials = true;
