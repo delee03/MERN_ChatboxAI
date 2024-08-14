@@ -24,8 +24,10 @@ app.use(
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-//remove it in production
-app.use(morgan("dev"));
+// Use morgan for logging in development
+if (process.env.NODE_ENV === "development") {
+    app.use(morgan("dev"));
+}
 
 app.use("/api/v1", appRouter);
 export default app;
