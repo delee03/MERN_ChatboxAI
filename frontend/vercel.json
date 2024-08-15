@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/api/(.*)",
-            "dest": "https://your-backend-project.vercel.app/api/$1"
+            "dest": "https://mern-chatbot-ai-ruddy.vercel.app/api/$1"
         },
         {
             "src": "/(.*)",
