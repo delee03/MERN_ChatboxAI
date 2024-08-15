@@ -12,11 +12,10 @@ const app = express();
 //sử dụng middlewares
 app.use(
     cors({
-        origin: '*', // Cho phép tất cả các origin
-          methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        origin: 'https://fuderr-ai.vercel.app',
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
         credentials: true,
-      
-         allowedHeaders:
+        allowedHeaders:
             "Origin, X-Requested-With, Content-Type, Accept, Authorization",
         optionsSuccessStatus: 204,
     })
@@ -26,9 +25,9 @@ app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Use morgan for logging in development
-if (process.env.NODE_ENV === "development") {
+
     app.use(morgan("dev"));
-}
+
 
 app.use("/api/v1", appRouter);
 export default app;
