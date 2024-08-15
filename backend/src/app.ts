@@ -22,6 +22,7 @@ app.use(
 );
 
 app.use(express.json());
+app.options('*', cors()); // Kích hoạt pre-flight request cho tất cả các route
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Use morgan for logging in development
