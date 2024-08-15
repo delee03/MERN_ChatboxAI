@@ -8,12 +8,12 @@ import { AuthProvider } from "./context/AuthContext.tsx";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
 
-const baseURL =
-    process.env.NODE_ENV === "development"
-        ? 'http://localhost:5000/api/v1'
-        : 'https://mern-chatbot-ai-ruddy.vercel.app/api/v1';
+// const baseURL =
+//     process.env.NODE_ENV === "development"
+//         ? 'http://localhost:5000/api/v1'
+//         : 'https://mern-chatbot-ai-ruddy.vercel.app/api/v1';
 
-axios.defaults.baseURL = baseURL;
+axios.defaults.baseURL = "https://mern-chatbot-api.vercel.app/api/v1";
 axios.defaults.withCredentials = true;
 //lệnh xác thực cho phép set cookies từ backend trực tiếp, trao đổi thông tin cookies
 
