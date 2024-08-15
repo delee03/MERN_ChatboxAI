@@ -13,8 +13,11 @@ const app = express();
 app.use(
     cors({
         origin: 'https://fuderr-ai.vercel.app',
+          methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
         credentials: true,
-        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      
+         allowedHeaders:
+            "Origin, X-Requested-With, Content-Type, Accept, Authorization",
         optionsSuccessStatus: 204,
     })
 );
