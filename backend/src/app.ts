@@ -12,7 +12,7 @@ const app = express();
 //sử dụng middlewares
 app.use(
     cors({
-        origin: 'https://fuderr-ai.vercel.app',
+        origin: '*', // Cho phép tất cả các origin
           methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
         credentials: true,
       
